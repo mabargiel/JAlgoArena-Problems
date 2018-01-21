@@ -13,8 +13,10 @@ class ProblemsController(
 ) {
 
     @GetMapping("/problems", produces = arrayOf("application/json"))
-    fun problems(): List<Problem> = repository.findAll()
+    fun problems(): List<Problem> =
+            repository.findAll()
 
     @GetMapping("/problems/{id}", produces = arrayOf("application/json"))
-    fun problem(@PathVariable id: String) = repository.find(id)
+    fun problem(@PathVariable id: String) =
+            repository.find(id)
 }

@@ -47,9 +47,13 @@ class ProblemsRepositorySpec {
 
     @Test
     fun should_allow_on_adding_new_problem() {
+        var file = File("problems.json")
         val problems = jacksonObjectMapper().readValue(
-                File("problems.json"), Array<Problem>::class.java
+                file, Array<Problem>::class.java
         )
+
+        System.out.println("LOL" + problems.count())
+        System.out.println("EXISTS: " + file.isFile() + " CAN READ" + file)
 
         val fibProblem = problems.filter { it.id == "fib" }.first()
 
